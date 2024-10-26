@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import bannerOne from "../../assets/account.jpg";
+import bannerOne from "../../assets/img.jpg";
 import bannerTwo from "../../assets/img2.jpg";
 import bannerThree from "../../assets/img3.jpg";
 import {
@@ -142,8 +142,8 @@ function ShoppingHome() {
                 src={slide?.image}
                 key={index}
                 className={`${
-                  index === currentSlide ? "opacity-100" : "opacity-0"
-                } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000`}
+                  index === currentSlide ? "opacity-1000" : "opacity-0"
+                } absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-100`}
                 alt={`Slide ${index + 1}`} // Add alt attribute for accessibility
               />
             ))

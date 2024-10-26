@@ -43,17 +43,17 @@ function ShoppingProductTile({
           </div>
           <div className="flex justify-between items-center mb-2">
               <span
-                  className={`text-lg font-semibold text-primary ${
-                    product?.salePrice > 0 ? "line-through" : ""
-                  }`}
+                className={`text-lg font-semibold text-primary ${
+                  product?.salePrice > 0 ? "line-through" : ""
+                }`}
                 >
-                  ₹{product?.price}
-                </span>
-                {product?.salePrice > 0 ? (
-                  <span className="text-lg font-semibold text-primary">
-                    ₹{product?.salePrice}
-                  </span>
-                ) : null}
+                ₹{product?.price}
+              </span>
+              {product?.salePrice > 0 ? (
+              <span className="text-lg font-semibold text-primary">
+                ₹{product?.salePrice}
+              </span>
+            ) : null}
           </div>
         </CardContent>
       </div>

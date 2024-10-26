@@ -9,7 +9,7 @@ export const registerFormControls = [
   {
     name: "email",
     label: "Email",
-    placeholder: "Enter your email",
+    placeholder: "Enter your IIT Dharwad email",
     componentType: "input",
     type: "email",
   },
@@ -26,7 +26,7 @@ export const loginFormControls = [
   {
     name: "email",
     label: "Email",
-    placeholder: "Enter your email",
+    placeholder: "Enter your IIT Dharwad email",
     componentType: "input",
     type: "email",
   },
