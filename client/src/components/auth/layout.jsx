@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
-import accImg from "../../assets/account.jpg";
+import accImg from "../../assets/img2.jpg";
 function AuthLayout() {
   return (
     <div className="flex min-h-screen w-full">
       <div className="hidden lg:flex items-center justify-center  w-1/2 px-12"
         style={{
           backgroundImage: `url(${accImg})`,
-          filter: 'blur(2px)', // Adjust blur intensity here
+          filter: 'blur(8px)', // Adjust blur intensity here
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
