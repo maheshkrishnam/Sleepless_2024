@@ -14,12 +14,12 @@ const shopSearchRouter = require("./routes/shop/search-routes");
 const shopReviewRouter = require("./routes/shop/review-routes");
 
 const commonFeatureRouter = require("./routes/common/feature-routes");
-
+require('dotenv').config();
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
 
 mongoose
-  .connect("mongodb+srv://maheshkrishnam:Oc6ovUCMzr8Qndlc@cluster0.womg8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((error) => console.log(error));
 
@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
