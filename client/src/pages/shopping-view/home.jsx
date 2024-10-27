@@ -1,21 +1,19 @@
 import { Button } from "@/components/ui/button";
-import bannerOne from "../../assets/img.jpg";
+import bannerOne from "../../assets/account.jpg";
 import bannerTwo from "../../assets/img2.jpg";
 import bannerThree from "../../assets/img3.jpg";
 import {
-  Airplay,
-  BabyIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  CloudLightning,
-  Heater,
-  Images,
-  Shirt,
   ShirtIcon,
-  ShoppingBasket,
-  UmbrellaIcon,
-  WashingMachine,
-  WatchIcon,
+  House,
+  Cake,
+  NotebookPen,
+  Headset,
+  Trophy,
+  ScrollText,
+  HousePlus,
+  Warehouse,
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
@@ -32,20 +30,20 @@ import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import { getFeatureImages } from "@/store/common-slice";
 
 const categoriesWithIcon = [
-  { id: "shop1", label: "shop1", icon: ShirtIcon },
-  { id: "shop2", label: "shop2", icon: CloudLightning },
-  { id: "shop3", label: "shop3", icon: BabyIcon },
-  { id: "shop4", label: "shop4", icon: WatchIcon },
-  { id: "shop5", label: "shop5", icon: UmbrellaIcon },
+  { id: "shop1", label: "shop1", icon: House },
+  { id: "shop2", label: "shop2", icon: Warehouse },
+  { id: "shop3", label: "shop3", icon: HousePlus },
+  { id: "shop4", label: "shop4", icon: Warehouse },
+  { id: "shop5", label: "shop5", icon: House },
 ];
 
 const brandsWithIcon = [
-  { id: "Food", label: "Food", icon: Shirt }, 
-  { id: "Stationary", label: "Stationary", icon: WashingMachine }, 
-  { id: "Gadgets", label: "Gadgets", icon: ShoppingBasket },
-  { id: "Merch", label: "Merch", icon: Airplay },
-  { id: "Sports", label: "Sports", icon: Images },
-  { id: "Notes", label: "Notes", icon: Heater },
+  { id: "Food", label: "Food", icon: Cake }, 
+  { id: "Stationary", label: "Stationary", icon: NotebookPen }, 
+  { id: "Gadgets", label: "Gadgets", icon: Headset },
+  { id: "Merch", label: "Merch", icon: ShirtIcon },
+  { id: "Sports", label: "Sports", icon: Trophy },
+  { id: "Notes", label: "Notes", icon: ScrollText },
 ];
 
 function ShoppingHome() {
@@ -165,49 +163,52 @@ function ShoppingHome() {
           <ChevronRightIcon className="w-4 h-4" />
         </Button>
       </div>
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">
-            All Shops
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categoriesWithIcon.map((categoryItem) => (
-              <Card
-                key={categoryItem.id}
-                onClick={() =>
-                  handleNavigateToListingPage(categoryItem, "category")
-                }
-                className="cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <categoryItem.icon className="w-12 h-12 mb-4 text-primary" />
-                  <span className="font-bold">{categoryItem.label}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Shop by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {brandsWithIcon.map((brandItem) => (
-              <Card
-                key={brandItem.id}
-                onClick={() => handleNavigateToListingPage(brandItem, "brand")}
-                className="cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <CardContent className="flex flex-col items-center justify-center p-6">
-                  <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
-                  <span className="font-bold">{brandItem.label}</span>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-gray-100">
+  <div className="container mx-auto px-6">
+    <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+      Explore All Shops
+    </h2>
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      {categoriesWithIcon.map((categoryItem) => (
+        <Card
+          key={categoryItem.id}
+          onClick={() => handleNavigateToListingPage(categoryItem, "category")}
+          className="cursor-pointer p-4 bg-white rounded-lg border border-gray-200 shadow-md hover:border-green-500 transition-all transform hover:-translate-y-1"
+        >
+          <CardContent className="flex flex-col items-center justify-center p-8">
+            <categoryItem.icon className="w-14 h-14 mb-6 text-primary" />
+            <span className="font-semibold text-lg text-gray-700">{categoryItem.label}</span>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+     <section className="py-12 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Shop by Category</h2>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {brandsWithIcon.map((brandItem) => (
+        <Card
+          key={brandItem.id}
+          onClick={() => handleNavigateToListingPage(brandItem, "brand")}
+          className="cursor-pointer p-4 bg-white rounded-lg border border-gray-200 shadow-md hover:border-green-500 transition-all transform hover:-translate-y-1 hover:shadow-lg"
+        >
+          <CardContent className="flex flex-col items-center justify-center p-6">
+            <brandItem.icon className="w-12 h-12 mb-4 text-primary" />
+            <span className="font-bold text-gray-700">{brandItem.label}</span>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       <section className="py-12">
         <div className="container mx-auto px-4">

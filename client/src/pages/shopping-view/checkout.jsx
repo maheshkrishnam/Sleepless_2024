@@ -5,13 +5,13 @@ import UserCartItemsContent from "@/components/shopping-view/cart-items-content"
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { createNewOrder } from "@/store/shop/order-slice";
-import { Navigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
+  const [isOrderPlaced, setIsOrderPlaced] = useState(false);
   const dispatch = useDispatch();
   const { toast } = useToast();
 
@@ -75,6 +75,7 @@ function ShoppingCheckout() {
 
     dispatch(createNewOrder(orderData)).then((data) => {
       if (data?.payload?.success) {
+        setIsOrderPlaced(true);
         toast({
           title: "Order placed successfully!",
           variant: "success",
@@ -111,8 +112,14 @@ function ShoppingCheckout() {
             </div>
           </div>
           <div className="mt-4 w-full">
-            <Button onClick={handlePlaceOrder} className="w-full">
-              Place Order
+            <Button
+              onClick={handlePlaceOrder}
+              className={`w-full ${
+                isOrderPlaced ? "bg-green-500 text-white" : ""
+              }`}
+              disabled={isOrderPlaced}
+            >
+              {isOrderPlaced ? "Order Placed" : "Place Order"}
             </Button>
           </div>
         </div>

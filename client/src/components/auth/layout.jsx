@@ -6,13 +6,13 @@ function AuthLayout() {
       <div className="hidden lg:flex items-center justify-center  w-1/2 px-12"
         style={{
           backgroundImage: `url(${accImg})`,
-          filter: 'blur(8px)', // Adjust blur intensity here
+          filter: 'blur(1px)', // Adjust blur intensity here
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}>
       </div>
-      <div className="absolute top-[50%] left-[12%] max-w-md space-y-6 text-center text-primary-foreground">
-        <h1 className="text-4xl text-black font-extrabold tracking-tight">
+      <div className="absolute top-[80%] left-[12%] max-w-md space-y-6 text-center text-primary-foreground">
+        <h1 className="text-4xl text-gray-100 font-extrabold tracking-tight">
           Welcome to IIT Dharwad Campus Bazar
         </h1>
       </div>
